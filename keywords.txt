@@ -1,0 +1,4 @@
+# syntax coloring map For asyncino 
+
+# methods and functions (KEYWORD2)
+asyncino KEYWORD2
