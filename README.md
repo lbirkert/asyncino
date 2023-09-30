@@ -13,19 +13,19 @@ asyncino is the asynchronous library for the Arduino family
 
 [View Examples](https://github.com/lbirkert/asyncino/tree/main/examples)
 
-# ASYNCINO_DELAY
+## Feature ASYNCINO_DELAY
 Enables the usage of the asynchronous delay(callback, milliseconds) and
 delayMicroseconds(callback, microseconds) functions.
 
-## Reference
+### Reference
 https://www.arduino.cc/reference/en/language/functions/time/delay/
 
 https://www.arduino.cc/reference/en/language/functions/time/delaymicroseconds/
 
-## Settings
-ASYNCINO_DELAY_POOL the maximum amount of concurrent delays.
+### Settings
+ASYNCINO_DELAY_POOL: the maximum amount of concurrent delays.
 
-## Usage
+### Usage
 ```ino
 #define ASYNCINO_DELAY
 #define ASYNCINO_DELAY_POOL 1
@@ -33,19 +33,19 @@ ASYNCINO_DELAY_POOL the maximum amount of concurrent delays.
 #include "asyncino.h"
 ```
 
-# ASYNCINO_PULSEIN
+## Feature ASYNCINO_PULSEIN
 Enables the usage of the asynchonous pulseIn(callback, port, value, timeout?) and
 pulseInLong(callback, port, value, timeout?) functions.
 
-## Reference
+### Reference
 https://www.arduino.cc/reference/en/language/functions/advanced-io/pulsein/ 
 
 https://www.arduino.cc/reference/en/language/functions/advanced-io/pulseinlong/
 
-## Settings
-ASYNCINO_PULSEIN_POOL the maximum amount of concurrent pulseIns.
+### Settings
+ASYNCINO_PULSEIN_POOL: the maximum amount of concurrent pulseIns.
 
-## Usage
+### Usage
 ```ino
 #define ASYNCINO_PULSEIN
 #define ASYNCINO_PULSEIN_POOL 1
