@@ -19,6 +19,7 @@ delayMicroseconds(callback, microseconds) functions.
 
 ## Reference
 https://www.arduino.cc/reference/en/language/functions/time/delay/
+
 https://www.arduino.cc/reference/en/language/functions/time/delaymicroseconds/
 
 ## Settings
@@ -37,7 +38,8 @@ Enables the usage of the asynchonous pulseIn(callback, port, value, timeout?) an
 pulseInLong(callback, port, value, timeout?) functions.
 
 ## Reference
-https://www.arduino.cc/reference/en/language/functions/advanced-io/pulsein/
+https://www.arduino.cc/reference/en/language/functions/advanced-io/pulsein/ 
+
 https://www.arduino.cc/reference/en/language/functions/advanced-io/pulseinlong/
 
 ## Settings
