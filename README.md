@@ -1,3 +1,4 @@
+```
                                _
   ____ ________  ______  _____(_)___  ____
  / __ `/ ___/ / / / __ \/ ___/ / __ \/ __ \
@@ -6,8 +7,11 @@
           /____/
 
 (c) Copyright 2023 Lucas Birkert, all rights reserved
+```
 
 asyncino is the asynchronous library for the Arduino family
+
+[View Examples](https://github.com/lbirkert/asyncino/tree/main/examples)
 
 # ASYNCINO_DELAY
 Enables the usage of the asynchronous delay(callback, milliseconds) and
