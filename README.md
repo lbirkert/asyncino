@@ -5,11 +5,9 @@
 / /_/ (__  ) /_/ / / / / /__/ / / / / /_/ /
 \__,_/____/\__, /_/ /_/\___/_/_/ /_/\____/
           /____/
-
-(c) Copyright 2023 Lucas Birkert, all rights reserved
 ```
 
-asyncino is the asynchronous library for the Arduino family. [Examples](https://github.com/lbirkert/asyncino/tree/main/examples)
+An asynchronous library for the Arduino family. [Examples](https://github.com/lbirkert/asyncino/tree/main/examples)
 
 ----
 
@@ -17,17 +15,17 @@ asyncino is the asynchronous library for the Arduino family. [Examples](https://
 
 ## Feature ASYNCINO_DELAY
 
-Enables the usage of the asynchronous delay(callback, milliseconds) and
-delayMicroseconds(callback, microseconds) functions.
+Enables the usage of the asynchronous `delay(callback, milliseconds)` and
+`delayMicroseconds(callback, microseconds)` functions.
 
-### Reference
+### Arduino Reference
 
 https://www.arduino.cc/reference/en/language/functions/time/delay/ <br/>
 https://www.arduino.cc/reference/en/language/functions/time/delaymicroseconds/
 
 ### Settings
 
-ASYNCINO_DELAY_POOL: the maximum amount of concurrent delays. (default: 1)
+`ASYNCINO_DELAY_POOL`: the maximum amount of concurrent delays. (default: `1`)
 
 ### Usage
 
@@ -62,17 +60,17 @@ void loop() {
 
 ## Feature ASYNCINO_PULSEIN
 
-Enables the usage of the asynchonous pulseIn(callback, port, value, timeout?) and
-pulseInLong(callback, port, value, timeout?) functions.
+Enables the usage of the asynchonous `pulseIn(callback, port, value, timeout?)` and
+`pulseInLong(callback, port, value, timeout?)` functions.
 
-### Reference
+### Arduino Reference
 
 https://www.arduino.cc/reference/en/language/functions/advanced-io/pulsein/ <br/>
 https://www.arduino.cc/reference/en/language/functions/advanced-io/pulseinlong/
 
 ### Settings
 
-ASYNCINO_PULSEIN_POOL: the maximum amount of concurrent pulseIns. (default: 1)
+`ASYNCINO_PULSEIN_POOL`: the maximum amount of concurrent pulseIns. (default: `1`)
 
 ### Usage
 
@@ -100,11 +98,11 @@ void loop() {
 
 ## Feature ASYNCINO_ID
 
-Enables the usage of ids, which can be used to clear delays and pulseIns. (clearDelay, clearPulseIn)
+Enables the usage of ids, which can be used to clear delays and pulseIns. (`clearDelay(id)`, `clearPulseIn(id)`)
 
 ### Settings
 
-ASYNCINO_ID_POOL: the size of the free id ring buffer. (default: ASYNCINO_PULSEIN_POOL + ASYNCINO_DELAY_POOL)
+`ASYNCINO_ID_POOL`: the size of the free id ring buffer. (default: `ASYNCINO_PULSEIN_POOL + ASYNCINO_DELAY_POOL`)
 
 ### Usage
 
@@ -129,3 +127,9 @@ void loop() {
     asyncino();
 }
 ```
+
+----
+
+<br/>
+
+&copy; Copyright 2023 [Lucas Birkert](https://lbirkert.com), all rights reserved
