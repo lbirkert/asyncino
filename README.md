@@ -1,3 +1,5 @@
+[![.github/workflows/lint.yaml](https://github.com/lbirkert/asyncino/actions/workflows/lint.yaml/badge.svg)](https://github.com/lbirkert/asyncino/actions/workflows/lint.yaml)
+
 ```
                                _
   ____ ________  ______  _____(_)___  ____
