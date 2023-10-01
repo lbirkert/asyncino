@@ -15,8 +15,7 @@
 #define ASYNCINO_DELAY
 #define ASYNCINO_PULSEIN
 #define ASYNCINO_ID
-// enable safety assertions to prevent seg faults
-#define ASYNCINO_SAFE
+#define ASYNCINO_SAFE // disable undefined behavior
 
 #include <asyncino.h>
 
@@ -36,6 +35,9 @@ void blink() {
 void listenStop() {
   pulseIn([]() {
     clearDelay(intv);
+
+    // restart the programm after one second
+    delay(setup, 1000);
   }, STOP_PIN, HIGH);
 }
 
@@ -47,7 +49,6 @@ void setup() {
 }
 
 void loop() {
-  //Serial.println("STATE: " + String(digitalRead(STOP_PIN)));
   // run asyncino's eventloop
   asyncino();
 }

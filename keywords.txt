@@ -2,3 +2,9 @@
 
 # methods and functions (KEYWORD2)
 asyncino KEYWORD2
+delay KEYWORD2
+delayMicroseconds KEYWORD2
+pulseIn KEYWORD2
+pulseInLong KEYWORD2
+aid_req KEYWORD2
+aid_ret KEYWORD2

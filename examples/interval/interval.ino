@@ -13,9 +13,7 @@
 
 // enable asyncino's delay feature
 #define ASYNCINO_DELAY
-#define ASYNCINO_DELAY_POOL 1
-// enable safety assertions to prevent seg faults
-#define ASYNCINO_SAFE
+#define ASYNCINO_SAFE // disable undefined behavior
 
 #include <asyncino.h>
 

@@ -11,14 +11,10 @@
 
 // This programm asynchronously gets the distance from an ultrasonic sensor using asyncino
 
-// enable asyncino's delay feature
+// enable asyncino's delay and pulseIn feature
 #define ASYNCINO_DELAY
-#define ASYNCINO_DELAY_POOL 1
-// enable asyncino's pulsein feature
 #define ASYNCINO_PULSEIN
-#define ASYNCINO_PULSEIN_POOL 1
-// enable safety assertions to prevent seg faults
-#define ASYNCINO_SAFE
+#define ASYNCINO_SAFE // disable undefined behavior
 
 #include <asyncino.h>
 
