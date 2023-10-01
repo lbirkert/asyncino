@@ -1,13 +1,20 @@
+// SPDX-License-Identifier: MIT
+
+//                                _
+//   ____ ________  ______  _____(_)___  ____
+//  / __ `/ ___/ / / / __ \/ ___/ / __ \/ __ \
+// / /_/ (__  ) /_/ / / / / /__/ / / / / /_/ /
+// \__,_/____/\__, /_/ /_/\___/_/_/ /_/\____/
+//           /____/
+//
+// (c) Copyright 2023 Lucas Birkert, all rights reserved
+
 #pragma once
 
 #ifndef ASYNCINO_PULSEIN_H
 #define ASYNCINO_PULSEIN_H
 
 #include <Arduino.h>
-
-#ifndef ASYNCINO_PULSEIN_POOL
-#define ASYNCINO_PULSEIN_POOL 1
-#endif
 
 #ifdef ASYNCINO_ID
 #include "id.h"

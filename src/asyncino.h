@@ -58,6 +58,18 @@
 #include <Arduino.h>
 
 #ifdef ASYNCINO_DELAY
+#ifndef ASYNCINO_DELAY_POOL
+#define ASYNCINO_DELAY_POOL 1
+#endif
+#endif
+
+#ifdef ASYNCINO_PULSEIN
+#ifndef ASYNCINO_PULSEIN_POOL
+#define ASYNCINO_PULSEIN_POOL 1
+#endif
+#endif
+
+#ifdef ASYNCINO_DELAY
 #include "delay.h";
 #endif
 
