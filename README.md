@@ -134,4 +134,47 @@ void loop() {
 
 <br/>
 
+## Feature ASYNCINO_LISTEN
+
+Enables the usage of `listen(cb, port, type)`, which can be used to listen for certain changes on a pin.
+
+type can be one of the following:
+
+value | constant | description
+------------------------------
+0|`ALISTEN_LOW`| run cb whenever pin is LOW
+1|`ALISTEN_HIGH`| run cb whenever pin is HIGH
+2|`ALISTEN_FALLING`| run cb whenever pin goes from HIGH to LOW
+3|`ALISTEN_RISING`| run cb whenever pin goes from LOW to HIGH
+4|`ALISTEN_CHANGE`| run cb whenever pin value changes (RISING or FALLING)
+
+### Settings
+
+`ASYNCINO_LISTEN_POOL`: the maximum amount of concurrent listens. (default: `1`)
+
+### Usage
+
+```ino
+#define ASYNCINO_LISTEN
+
+#include "asyncino.h"
+
+void setup() {
+    pinMode(7, INPUT_PULLUP);
+
+    // watch pin 7 for changes
+    listen([](int value) {
+        Serial.println("PIN CHANGED: " + String(value));
+    }, 7, ALISTEN_CHANGE); 
+}
+
+void loop() {
+    asyncino();
+}
+```
+
+----
+
+<br/>
+
 &copy; Copyright 2023 [Lucas Birkert](https://lbirkert.com), all rights reserved

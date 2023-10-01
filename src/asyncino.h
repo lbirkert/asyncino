@@ -28,6 +28,12 @@
 #endif
 #endif
 
+#ifdef ASYNCINO_LISTEN
+#ifndef ASYNCINO_LISTEN_POOL
+#define ASYNCINO_LISTEN_POOL 1
+#endif
+#endif
+
 #ifdef ASYNCINO_DELAY
 #include "delay.h";
 #endif
@@ -36,11 +42,13 @@
 #include "pulsein.h";
 #endif
 
+#ifdef ASYNCINO_LISTEN
+#include "listen.h";
+#endif
+
 #ifdef ASYNCINO_ID
 #include "id.h";
 #endif
-
-void asyncino();
 
 void asyncino() {
   auto now = micros();
@@ -89,6 +97,18 @@ void asyncino() {
     }
   }
 #endif
+
+#ifdef ASYNCINO_LISTEN
+  for (int i = 0; i < asyncino_listen_len; i++) {
+    auto entry = &asyncino_listen_pool[i];
+    auto current = digitalRead(entry->pin);
+    if(listenShouldTrigger(entry->type, entry->last, current)) {
+      entry->cb(current);
+    }
+    entry->last = current;
+  }
+#endif
+
 }
 
 #endif

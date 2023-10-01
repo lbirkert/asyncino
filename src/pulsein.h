@@ -20,7 +20,7 @@
 #include "id.h"
 #endif
 
-typedef void (*PulseInCallback)(unsigned long);
+typedef void (*APulseInCallback)(unsigned long);
 
 struct APulseIn {
 #ifdef ASYNCINO_ID
@@ -28,31 +28,11 @@ struct APulseIn {
 #endif
   unsigned long stamp;
   unsigned long start;
-  PulseInCallback cb;
+  APulseInCallback cb;
   int pin;
   int value;
   int last;
 };
-
-#ifdef ASYNCINO_ID
-AId
-#else
-void
-#endif
-pulseIn(PulseInCallback cb, int pin, int value, unsigned long timeout = 0);
-
-#ifdef ASYNCINO_ID
-AId
-#else
-void
-#endif
-pulseInLong(PulseInCallback cb, int pin, int value, unsigned long timeout = 0);
-
-void clearPulseInIndex(unsigned int i);
-
-#ifdef ASYNCINO_ID
-bool clearPulseIn(AId id);
-#endif
 
 APulseIn asyncino_pulsein_pool[ASYNCINO_PULSEIN_POOL];
 unsigned short asyncino_pulsein_len = 0;
@@ -62,7 +42,7 @@ AId
 #else
 void
 #endif
-pulseIn(PulseInCallback cb, int pin, int value, unsigned long timeout) {
+pulseIn(APulseInCallback cb, int pin, int value, unsigned long timeout) {
   auto now = micros();
   auto stamp = timeout == 0 ? 0 : now + timeout;
 
@@ -100,22 +80,10 @@ AId
 #else
 void
 #endif
-pulseInLong(PulseInCallback cb, int pin, int value,
+pulseInLong(APulseInCallback cb, int pin, int value,
                  unsigned long timeout) {
   return pulseIn(cb, pin, value, timeout);
 }
-
-#ifdef ASYNCINO_ID
-bool clearPulseIn(AId id) {
-  for (int i = 0; i < asyncino_pulsein_len; i++) {
-    if (id == asyncino_pulsein_pool[i].id) {
-      clearPulseInIndex(i);
-      return true;
-    }
-  }
-  return false;
-}
-#endif
 
 void clearPulseInIndex(unsigned int i) {
 #ifdef ASYNCINO_SAFE
@@ -132,5 +100,17 @@ void clearPulseInIndex(unsigned int i) {
   }
 #endif
 }
+
+#ifdef ASYNCINO_ID
+bool clearPulseIn(AId id) {
+  for (int i = 0; i < asyncino_pulsein_len; i++) {
+    if (id == asyncino_pulsein_pool[i].id) {
+      clearPulseInIndex(i);
+      return true;
+    }
+  }
+  return false;
+}
+#endif
 
 #endif

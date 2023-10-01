@@ -20,35 +20,15 @@
 #include "id.h"
 #endif
 
-typedef void (*DelayCallback)();
+typedef void (*ADelayCallback)();
 
 typedef struct ADelay {
 #ifdef ASYNCINO_ID
   AId id;
 #endif
   unsigned long stamp;
-  DelayCallback cb;
+  ADelayCallback cb;
 } ADelay;
-
-#ifdef ASYNCINO_ID
-AId
-#else
-void
-#endif
-delayMicroseconds(DelayCallback cb, unsigned long us);
-
-#ifdef ASYNCINO_ID
-AId
-#else
-void
-#endif
-delay(DelayCallback cb, unsigned int ms);
-
-void clearDelayIndex(unsigned short i);
-
-#ifdef ASYNCINO_ID
-bool clearDelay(AId id);
-#endif
 
 ADelay asyncino_delay_pool[ASYNCINO_DELAY_POOL];
 unsigned short asyncino_delay_len = 0;
@@ -58,7 +38,7 @@ AId
 #else
 void
 #endif
-delayMicroseconds(DelayCallback cb, unsigned long us) {
+delayMicroseconds(ADelayCallback cb, unsigned long us) {
   auto stamp = micros() + us;
 
 #ifdef ASYNCINO_ID
@@ -89,21 +69,9 @@ AId
 #else
 void
 #endif
-delay(DelayCallback cb, unsigned int ms) {
+delay(ADelayCallback cb, unsigned int ms) {
   return delayMicroseconds(cb, (long)ms * 1000);
 }
-
-#ifdef ASYNCINO_ID
-bool clearDelay(AId id) {
-  for (int i = 0; i < asyncino_delay_len; i++) {
-    if (id == asyncino_delay_pool[i].id) {
-      clearDelayIndex(i);
-      return true;
-    }
-  }
-  return false;
-}
-#endif
 
 void clearDelayIndex(unsigned short i) {
 #ifdef ASYNCINO_SAFE
@@ -120,5 +88,17 @@ void clearDelayIndex(unsigned short i) {
   }
 #endif
 }
+
+#ifdef ASYNCINO_ID
+bool clearDelay(AId id) {
+  for (int i = 0; i < asyncino_delay_len; i++) {
+    if (id == asyncino_delay_pool[i].id) {
+      clearDelayIndex(i);
+      return true;
+    }
+  }
+  return false;
+}
+#endif
 
 #endif
