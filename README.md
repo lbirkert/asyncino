@@ -140,13 +140,13 @@ Enables the usage of `listen(cb, port, type)`, which can be used to listen for c
 
 type can be one of the following:
 
-value | constant | description
-------------------------------
-0|`ALISTEN_LOW`| run cb whenever pin is LOW
-1|`ALISTEN_HIGH`| run cb whenever pin is HIGH
-2|`ALISTEN_FALLING`| run cb whenever pin goes from HIGH to LOW
-3|`ALISTEN_RISING`| run cb whenever pin goes from LOW to HIGH
-4|`ALISTEN_CHANGE`| run cb whenever pin value changes (RISING or FALLING)
+|value | constant | description|
+|--|--|--|
+|0|`ALISTEN_LOW`| run cb whenever pin is LOW|
+|1|`ALISTEN_HIGH`| run cb whenever pin is HIGH|
+|2|`ALISTEN_FALLING`| run cb whenever pin goes from HIGH to LOW|
+|3|`ALISTEN_RISING`| run cb whenever pin goes from LOW to HIGH|
+|4|`ALISTEN_CHANGE`| run cb whenever pin value changes (RISING or FALLING)|
 
 ### Settings
 
