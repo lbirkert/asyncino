@@ -36,7 +36,7 @@ void setup() {
     if(delayId != 0) {
       clearDelay(delayId);
     } else {
-      delay([](){
+      delayId = delay([](){
         if(state) {
           counter += 1;
           Serial.println("CLICKED: " + String(counter));
